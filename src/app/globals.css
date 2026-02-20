@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #29314A;
+  --navy2: #2B334E;
+  --red: #B8303C;
+  --red2: #B9323E;
+  --textDark: #12161F;
+  --slate: #4A4F5F;
+  --grayLight: #DDDADC;
+  --grayLight2: #BBB4B5;
+  --bg: #FCFBFC;
+}
+
+body {
+  background: var(--bg);
+  color: var(--textDark);
+  margin: 0;
+}
+
+.font-heading {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.hero-white *:not(.hero-red) {
+  color: #fff !important;
+}
+
+.hero-red {
+  color: var(--red) !important;
+}
+
