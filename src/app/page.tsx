@@ -12,11 +12,9 @@ export default function Home() {
       
       <Header />
 
-<section className="w-full bg-[var(--navy)] hero-white flex flex-col"><div className="relative h-[460px] w-full overflow-hidden">
+<section className="w-full bg-[var(--navy)] hero-white"><div className="relative h-[460px] w-full overflow-hidden">
   <Image src="/hero.jpg" alt="Hero" fill priority className="object-cover" />
-<div className="bg-red-500 text-white p-6 text-2xl">
-  Tailwind is working
-</div>
+
   {/* Overlay */}
   <div className="absolute inset-0 bg-black/45" />
 
@@ -33,7 +31,7 @@ export default function Home() {
         </span>
       </h1>
 
-      <p className="mt-6 font-body text-white/750 text-3xl md:text-4xl tracking-[0.05em] whitespace-nowrap">
+      <p className="mt-6 font-body text-white/80 text-3xl md:text-4xl tracking-[0.05em] whitespace-nowrap">
         Quality used vehicles · Easy financing · Fair trade-ins
       </p>
 
@@ -50,55 +48,55 @@ export default function Home() {
   </div>
 </div>
 {/* FEATURE STRIP */}
-<div className="w-full bg-[var(--navy)] border-t border-white/15">
-  <div className="mx-auto max-w-6xl px-6">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-white py-6">
-
-      <div className="flex items-center gap-4 px-6 py-3">
-        <div className="h-12 w-12 rounded-full border border-white/35 grid place-items-center">
-          <FaCheckCircle className="text-[20px]" />
+{/* FEATURE STRIP */}
+<section className="w-full bg-[var(--navy)] border-t border-white/10">
+  <div className="mx-auto max-w-7xl px-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div className="flex items-center gap-4 border-r border-white/15 px-6 py-5 text-white">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20">
+          <FaCheckCircle className="text-xl" />
         </div>
-        <div className="leading-tight">
-          <div className="font-body font-semibold text-[16px]">Quality Inspected Vehicles</div>
-          <div className="font-body text-[13px] text-white/70">Trusted by our standards</div>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-4 px-6 py-3">
-        <div className="h-12 w-12 rounded-full border border-white/35 grid place-items-center">
-          <FaMoneyBillWave className="text-[20px]" />
-        </div>
-        <div className="leading-tight">
-          <div className="font-body font-semibold text-[16px]">Fast Financing Options</div>
-          <div className="font-body text-[13px] text-white/70">Flexible lenders</div>
+        <div>
+          <div className="text-lg font-semibold">Quality Inspected Vehicles</div>
+          <div className="text-sm text-white/70">Trusted by our standards</div>
         </div>
       </div>
 
-      <div className="flex items-center gap-4 px-6 py-3">
-        <div className="h-12 w-12 rounded-full border border-white/35 grid place-items-center">
-          <FaCarSide className="text-[20px]" />
+      <div className="flex items-center gap-4 border-r border-white/15 px-6 py-5 text-white">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20">
+          <FaMoneyBillWave className="text-xl" />
         </div>
-        <div className="leading-tight">
-          <div className="font-body font-semibold text-[16px]">Top Trade-In Value</div>
-          <div className="font-body text-[13px] text-white/70">Fair market offers</div>
+        <div>
+          <div className="text-lg font-semibold">Fast Financing Options</div>
+          <div className="text-sm text-white/70">Flexible lenders</div>
         </div>
       </div>
 
-      <div className="flex items-center gap-4 px-6 py-3">
-        <div className="h-12 w-12 rounded-full border border-white/35 grid place-items-center">
-          <FaMapMarkerAlt className="text-[20px]" />
+      <div className="flex items-center gap-4 border-r border-white/15 px-6 py-5 text-white">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20">
+          <FaCarSide className="text-xl" />
         </div>
-        <div className="leading-tight">
-          <div className="font-body font-semibold text-[16px]">Locally Owned &amp; Operated</div>
-          <div className="font-body text-[13px] text-white/70">Community focused</div>
+        <div>
+          <div className="text-lg font-semibold">Top Trade-In Value</div>
+          <div className="text-sm text-white/70">Fair market offers</div>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4 px-6 py-5 text-white">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20">
+          <FaMapMarkerAlt className="text-xl" />
+        </div>
+        <div>
+          <div className="text-lg font-semibold">Locally Owned &amp; Operated</div>
+          <div className="text-sm text-white/70">Community focused</div>
         </div>
       </div>
 
     </div>
   </div>
-</div>
+</section>
 
-<div className="hidden lg:block text-white text-2xl">LG WORKS</div>
 
 
 
