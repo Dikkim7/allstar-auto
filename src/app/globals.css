@@ -18,6 +18,7 @@ body {
   background: var(--bg);
   color: var(--textDark);
   margin: 0;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
 .font-heading {
@@ -33,3 +34,47 @@ body {
   color: var(--red) !important;
 }
 
+.feature-strip {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+
+.feature-strip {
+  background: #1d2d63;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+.feature-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  padding: 12px 28px;
+  min-height: 54px;
+}
+
+.feature-strip-divider {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.feature-strip-icon {
+  color: #ffffff !important;
+  font-size: 27px;
+  flex-shrink: 0;
+  transform: translateX(36px);  
+}
+
+.feature-strip-title {
+  margin: 0;
+  color: #ffffff !important;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.feature-strip-subtitle {
+  margin: 3px 0 0 0;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 8.5px;
+  font-weight: 400;
+  line-height: 1.1;
+}
