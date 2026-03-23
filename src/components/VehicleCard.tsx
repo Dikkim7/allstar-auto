@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { FiHeart } from "react-icons/fi";
 
 type Vehicle = {
   title: string;
@@ -17,6 +17,7 @@ type VehicleCardProps = {
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const [currentImage, setCurrentImage] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     if (!isHovering || vehicle.images.length <= 1) return;
@@ -40,27 +41,44 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
   return (
     <div
-      className="overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+      className="vehicle-card"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
         setCurrentImage(0);
       }}
     >
-      <div className="relative h-64 w-full overflow-hidden bg-gray-100">
-        <Image
+      <div className="vehicle-card-image-wrap">
+        <img
+          key={currentImage}
           src={vehicle.images[currentImage] || "/hero.jpg"}
           alt={vehicle.title}
-          fill
-          className="object-cover"
+          className="vehicle-card-image"
         />
+        <div
+  style={{
+    position: "absolute",
+    inset: 0,
+    background: "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.25))",
+    pointerEvents: "none",
+  }}
+/>
+
+<button
+  type="button"
+  onClick={() => setIsFavorite((prev) => !prev)}
+  className={`vehicle-card-favorite ${isFavorite ? "active" : ""}`}
+  aria-label="Save vehicle"
+>
+  <FiHeart size={18} fill={isFavorite ? "currentColor" : "none"} />
+</button>
 
         {vehicle.images.length > 1 && (
           <>
             <button
               type="button"
               onClick={goToPrevious}
-              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/55 px-3 py-2 text-white"
+              className="vehicle-card-arrow left"
             >
               ←
             </button>
@@ -68,28 +86,47 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
             <button
               type="button"
               onClick={goToNext}
-              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/55 px-3 py-2 text-white"
+              className="vehicle-card-arrow right"
             >
               →
             </button>
           </>
         )}
+
+        {/* DOTS */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "10px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "6px",
+          }}
+        >
+          {vehicle.images.map((_, i) => (
+            <div
+              key={i}
+              style={{
+                width: "6px",
+                height: "6px",
+                borderRadius: "999px",
+                background:
+                  i === currentImage
+                    ? "#ffffff"
+                    : "rgba(255,255,255,0.4)",
+              }}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="p-5">
-        <h3 className="text-[1.35rem] font-bold text-[var(--navy)]">
-          {vehicle.title}
-        </h3>
+      <div className="vehicle-card-body">
+        <h3 className="vehicle-card-title">{vehicle.title}</h3>
+        <p className="vehicle-card-price">{vehicle.price}</p>
+        <p className="vehicle-card-miles">{vehicle.miles}</p>
 
-        <p className="mt-2 text-[2rem] font-extrabold text-[var(--red)]">
-          {vehicle.price}
-        </p>
-
-        <p className="mt-2 text-[15px] text-gray-500">{vehicle.miles}</p>
-
-        <button className="mt-5 w-full rounded-md bg-[var(--navy)] px-4 py-3 text-[15px] font-semibold text-white">
-          View Details
-        </button>
+        <button className="vehicle-card-button">View Details</button>
       </div>
     </div>
   );

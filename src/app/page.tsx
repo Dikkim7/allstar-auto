@@ -1,16 +1,67 @@
+import VehicleCard from "../components/VehicleCard";
 import Image from "next/image";
 import Header from "../components/Header";
 import { FiCheckCircle, FiDollarSign, FiTruck, FiMapPin } from "react-icons/fi";
-import VehicleCard from "../components/VehicleCard";
+
 
 const featuredVehicles = [
   {
     title: "2021 Ford F-150",
     price: "$38,995",
     miles: "25,134 Miles",
+   images: ["/truck1.jpg", "/truck2.jpg", "/truck3.jpg"],
+  },
+  {
+    title: "2019 Dodge Charger R/T",
+    price: "$32,995",
+    miles: "30,221 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2020 Honda Civic",
+    price: "$21,995",
+    miles: "38,916 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2022 Chevrolet Silverado",
+    price: "$44,995",
+    miles: "19,432 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2018 Nissan Altima",
+    price: "$18,995",
+    miles: "44,876 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2021 Toyota Camry",
+    price: "$24,995",
+    miles: "28,575 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2020 BMW 3 Series",
+    price: "$29,995",
+    miles: "22,110 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2019 Jeep Grand Cherokee",
+    price: "$27,995",
+    miles: "35,444 Miles",
+    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  },
+  {
+    title: "2022 Tesla Model 3",
+    price: "$39,995",
+    miles: "12,800 Miles",
     images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
   },
 ];
+
+
 
 export default function Home() {
   return (
@@ -108,11 +159,12 @@ export default function Home() {
       Featured Vehicles
     </h2>
 
-<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+   <div className="vehicles-grid">
   {featuredVehicles.map((vehicle, index) => (
     <VehicleCard key={index} vehicle={vehicle} />
   ))}
 </div>
+
 
     <div className="mt-10 text-center">
       <button className="text-lg font-semibold text-[var(--red)] hover:underline">
