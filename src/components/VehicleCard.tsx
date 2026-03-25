@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiHeart } from "react-icons/fi";
 
 type Vehicle = {
+  id: string;
   title: string;
   price: string;
   miles: string;
@@ -29,49 +31,55 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
     return () => clearInterval(interval);
   }, [isHovering, vehicle.images.length]);
 
-  const goToPrevious = () => {
+  const goToPrevious = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     setCurrentImage((prev) =>
       prev === 0 ? vehicle.images.length - 1 : prev - 1
     );
   };
 
-  const goToNext = () => {
+  const goToNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     setCurrentImage((prev) => (prev + 1) % vehicle.images.length);
   };
 
-  return (
-    <div
-      className="vehicle-card"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => {
-        setIsHovering(false);
-        setCurrentImage(0);
-      }}
-    >
-      <div className="vehicle-card-image-wrap">
-        <img
-          key={currentImage}
-          src={vehicle.images[currentImage] || "/hero.jpg"}
-          alt={vehicle.title}
-          className="vehicle-card-image"
-        />
-        <div
-  style={{
-    position: "absolute",
-    inset: 0,
-    background: "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.25))",
-    pointerEvents: "none",
-  }}
-/>
+  const toggleFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsFavorite((prev) => !prev);
+  };
 
-<button
-  type="button"
-  onClick={() => setIsFavorite((prev) => !prev)}
-  className={`vehicle-card-favorite ${isFavorite ? "active" : ""}`}
-  aria-label="Save vehicle"
+  return (
+   <Link
+  href={`/vehicles/${vehicle.id}`}
+  className="vehicle-card"
+  style={{ textDecoration: "none" }}
+  onMouseEnter={() => setIsHovering(true)}
+  onMouseLeave={() => {
+    setIsHovering(false);
+    setCurrentImage(0);
+  }}
 >
-  <FiHeart size={18} fill={isFavorite ? "currentColor" : "none"} />
-</button>
+  <div className="vehicle-card-image-wrap">
+    <img
+      key={currentImage}
+      src={vehicle.images[currentImage] || "/hero.jpg"}
+      alt={vehicle.title}
+      className="vehicle-card-image"
+    />
+
+        <button
+          type="button"
+          onClick={toggleFavorite}
+          className={`vehicle-card-favorite ${isFavorite ? "active" : ""}`}
+          aria-label="Save vehicle"
+        >
+          <FiHeart size={18} fill={isFavorite ? "currentColor" : "none"} />
+        </button>
 
         {vehicle.images.length > 1 && (
           <>
@@ -79,6 +87,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               type="button"
               onClick={goToPrevious}
               className="vehicle-card-arrow left"
+              aria-label="Previous image"
             >
               ←
             </button>
@@ -87,13 +96,13 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
               type="button"
               onClick={goToNext}
               className="vehicle-card-arrow right"
+              aria-label="Next image"
             >
               →
             </button>
           </>
         )}
 
-        {/* DOTS */}
         <div
           style={{
             position: "absolute",
@@ -126,8 +135,17 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         <p className="vehicle-card-price">{vehicle.price}</p>
         <p className="vehicle-card-miles">{vehicle.miles}</p>
 
-        <button className="vehicle-card-button">View Details</button>
+        <button
+          className="vehicle-card-button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = `/vehicles/${vehicle.id}`;
+          }}
+        >
+          View Details
+        </button>
       </div>
-    </div>
+    </Link>
   );
 }

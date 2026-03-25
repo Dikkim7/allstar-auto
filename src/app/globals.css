@@ -122,21 +122,21 @@ body {
   background: #d1d5db;
 }
 
-.vehicle-card-image-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;.vehicle-card-image {
+
+.vehicle-card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   display: block;
-  transition: opacity 0.4s ease;
-  filter: brightness(0.8) contrast(1.15);
+  transition: transform 0.4s ease;
 }
-  overflow: hidden;
-  background: #d1d5db;
+
+.vehicle-card:hover .vehicle-card-image {
+  transform: scale(1.08);
 }
+
+
 /* ARROWS */
 .vehicle-card-arrow {
   position: absolute;
