@@ -35,11 +35,11 @@ const featuredVehicles = [
   durability: 4,
   safety: 4,
   resaleValue: 4,
-  images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  images: ["/dodge1.jpg", "/dodge2.jpg", "/dodge3.jpg"],
 },
   {
     id: "civic-2020",
-    title: "2020 Honda Civic",
+    title: "2020 Honda Civic Type R",
     price: "$21,995",
     miles: "38,916 Miles",
     fuel: "Gasoline",
@@ -51,7 +51,7 @@ const featuredVehicles = [
   durability: 4,
   safety: 4,
   resaleValue: 4,
-    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+    images: ["/honda1.jpg", "/honda2.jpg", "/honda3.jpg"],
   },
   {
     id: "silverado-2022",
@@ -161,9 +161,9 @@ export default function Home() {
 
 
 
-      {/* HERO */}
-<section className="hero-white w-full">
-  <div className="relative h-[440px] w-full overflow-hidden sm:h-[520px] lg:h-[580px] xl:h-[640px]">
+{/* HERO */}
+<section className="w-full">
+  <div className="relative h-[520px] w-full overflow-hidden sm:h-[580px] lg:h-[650px]">
     <Image
       src="/hero.jpg"
       alt="Hero"
@@ -172,35 +172,50 @@ export default function Home() {
       className="object-cover"
     />
 
-    <div className="absolute inset-0 bg-black/45" />
+    <div className="absolute inset-0 bg-black/45 z-10" />
 
-    <div className="absolute inset-0 z-20">
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 pt-32 sm:pt-36 md:pt-40 lg:pt-32 xl:pt-36">
-        <div className="max-w-[300px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] xl:max-w-[760px]">
-          <h1 className="font-heading leading-[0.94] tracking-[0.01em]">
-            <span className="block text-[2rem] font-extrabold text-white sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.6rem] xl:text-[5rem]">
-              Buy. Sell. Trade.
-            </span>
+    {/* HERO TEXT */}
+    <div
+      className="absolute z-40 max-w-[650px]"
+   style={{
+  top: "160px",
+  left: "60px",
+}}
+    >
+      <h1
+        className="leading-[1.05] tracking-[-0.02em]"
+        style={{ margin: 0 }}
+      >
+        <span
+          className="block text-[3.6rem] font-extrabold sm:text-[2.4rem] md:text-[3rem] lg:text-[3.5rem]"
+          style={{ color: "#ffffff" }}
+        >
+          Buy. Sell. Trade.
+        </span>
 
-            <span className="hero-red mt-1 block text-[1.95rem] font-extrabold sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4.9rem]">
-              Drive Like an All Star.
-            </span>
-          </h1>
+        <span
+          className="mt-2 block text-[3.6rem] font-extrabold sm:text-[2.3rem] md:text-[2.9rem] lg:text-[3.4rem]"
+          style={{ color: "#B8303C" }}
+        >
+          Drive Like an All Star
+        </span>
+      </h1>
 
-          <p className="mt-4 max-w-[480px] text-[0.95rem] leading-[1.35] tracking-[0.01em] text-white/85 sm:text-[1rem] md:text-[1.08rem] lg:text-[1.15rem]">
-            Quality used vehicles · Easy financing · Fair trade-ins
-          </p>
+      <p
+        className="mt-5 max-w-[540px] text-base leading-[1.6] sm:text-lg"
+        style={{ color: "#ffffff" }}
+      >
+        Quality used vehicles · Easy financing · Fair trade-ins
+      </p>
 
-          <div className="mt-5 flex flex-wrap gap-3">
-            <button className="rounded-md bg-[var(--red)] px-5 py-2.5 text-sm font-semibold text-white sm:px-6 sm:py-3 sm:text-base">
-              Browse inventory
-            </button>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <button className="rounded-md bg-[var(--red)] px-5 py-3 text-sm font-semibold text-white sm:px-6 sm:text-base">
+          Browse Inventory
+        </button>
 
-            <button className="rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[var(--navy)] sm:px-6 sm:py-3 sm:text-base">
-              Get Pre-Approved
-            </button>
-          </div>
-        </div>
+        <button className="rounded-md bg-white px-5 py-3 text-sm font-semibold text-[var(--navy)] sm:px-6 sm:text-base">
+          Get Pre-Approved
+        </button>
       </div>
     </div>
   </div>
@@ -208,38 +223,36 @@ export default function Home() {
 
 {/* FEATURE STRIP */}
 <section className="feature-strip w-full">
-  <div className="mx-auto max-w-[1600px]">
-    <div className="grid grid-cols-4">
-      <div className="feature-strip-item feature-strip-divider">
-<FiCheckCircle className="feature-strip-icon" />        <div>
-          <p className="feature-strip-title">Quality Inspected Vehicles</p>
-          <p className="feature-strip-subtitle">Trusted by our standards</p>
-        </div>
+  <div className="grid grid-cols-4">
+    <div className="feature-strip-item feature-strip-divider">
+      <FiCheckCircle className="feature-strip-icon" />
+      <div className="flex flex-col justify-center">
+        <p className="feature-strip-title">Quality Inspected Vehicles</p>
+        <p className="feature-strip-subtitle">Trusted by our standards</p>
       </div>
+    </div>
 
-      <div className="feature-strip-item feature-strip-divider">
-<FiDollarSign className="feature-strip-icon" />        <div>
-          <p className="feature-strip-title">Fast Financing Options</p>
-          <p className="feature-strip-subtitle">Flexible lenders</p>
-        </div>
+    <div className="feature-strip-item feature-strip-divider">
+      <FiDollarSign className="feature-strip-icon" />
+      <div className="flex flex-col justify-center">
+        <p className="feature-strip-title">Fast Financing Options</p>
+        <p className="feature-strip-subtitle">Flexible lenders</p>
       </div>
+    </div>
 
-      <div className="feature-strip-item feature-strip-divider">
-<FiTruck className="feature-strip-icon" />        <div>
-          <p className="feature-strip-title">Top Trade-In Value</p>
-          <p className="feature-strip-subtitle">Fair market offers</p>
-        </div>
+    <div className="feature-strip-item feature-strip-divider">
+      <FiTruck className="feature-strip-icon" />
+      <div className="flex flex-col justify-center">
+        <p className="feature-strip-title">Top Trade-In Value</p>
+        <p className="feature-strip-subtitle">Fair market offers</p>
       </div>
+    </div>
 
-      <div className="feature-strip-item">
-<FiMapPin className="feature-strip-icon" />        <div>
-          <p className="feature-strip-title">
-            Locally Owned
-           
-            &amp; Operated
-          </p>
-          <p className="feature-strip-subtitle">Community focused</p>
-        </div>
+    <div className="feature-strip-item">
+      <FiMapPin className="feature-strip-icon" />
+      <div className="flex flex-col justify-center">
+        <p className="feature-strip-title">Locally Owned &amp; Operated</p>
+        <p className="feature-strip-subtitle">Community focused</p>
       </div>
     </div>
   </div>

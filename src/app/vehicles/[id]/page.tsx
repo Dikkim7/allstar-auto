@@ -40,11 +40,11 @@ const vehicles = [
   durability: 4,
   safety: 4,
   resaleValue: 4,
-  images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+  images: ["/dodge1.jpg", "/dodge2.jpg", "/dodge3.jpg"],
 },
   {
     id: "civic-2020",
-    title: "2020 Honda Civic",
+    title: "2020 Honda Civic Type R",
     price: "$21,995",
     miles: "38,916 Miles",
     fuel: "Gasoline",
@@ -56,7 +56,7 @@ const vehicles = [
   durability: 4,
   safety: 4,
   resaleValue: 4,
-    images: ["/hero.jpg", "/hero.jpg", "/hero.jpg"],
+    images: ["/honda1.jpg", "/honda2.jpg", "/honda3.jpg"],
   },
   {
     id: "silverado-2022",

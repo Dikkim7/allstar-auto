@@ -3,21 +3,21 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="absolute top-0 left-0 w-full z-50 bg-transparent">
-
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
+   <header className="absolute top-0 left-0 w-full z-30 bg-transparent">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between sm:h-20 md:h-24">
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
               alt="All Star Auto Group"
-              width={220}
-              height={60}
+              width={300}
+              height={80}
               priority
+              className="h-auto w-[140px] sm:w-[180px] md:w-[240px]"
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-7 font-body text-white">
+          <nav className="hidden items-center gap-5 text-sm text-white md:flex lg:gap-7 lg:text-base">
             <Link href="#" className="hover:opacity-80">Buy</Link>
             <Link href="#" className="hover:opacity-80">Sell</Link>
             <Link href="#" className="hover:opacity-80">Trade In</Link>
@@ -25,10 +25,10 @@ export default function Header() {
             <Link href="#" className="hover:opacity-80">Contact</Link>
           </nav>
 
-          <div className="hidden md:flex items-center gap-3 font-body">
+          <div className="hidden md:flex items-center">
             <Link
               href="#"
-              className="rounded-md bg-[var(--red)] px-4 py-2 text-white font-semibold"
+              className="rounded-md bg-[var(--red)] px-4 py-2 font-semibold text-white"
             >
               Browse Inventory
             </Link>
