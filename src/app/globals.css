@@ -47,7 +47,7 @@ body {
 .feature-strip-item {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 39px;
   padding: 10px 20px;
   min-height: 48px;
 }
